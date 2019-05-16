@@ -1,0 +1,65 @@
+<!-- ENDE CONTENT -->
+<br/><br/><br/><br/>
+<%
+if (frage_ID!=0) out.println("<p>Frage ID: "+frage_ID+"</p>");
+ 
+}  
+catch (Exception e){
+	Log.schreibe(e.getMessage());
+	StringWriter sw = new StringWriter();
+	e.printStackTrace(new PrintWriter(sw));
+	Log.schreibe(sw.toString());
+} 
+%> 
+<hr/>
+<a href='' onclick="openWindow('pdf.jsp',450,420);return false;" title='Daten als PDF'>Daten als PDF...</a>
+
+<table class='footer'>
+<tbody>
+<tr>
+<td class='footer-links'>
+<a href='' onclick="openWindow('https://plus.google.com/share?url='+location.href,450,420);return false;" title='Auf Google weitersagen'><img src='bilder/share-google.png' alt='Google Plus'/></a>
+&nbsp;
+<a href="" onclick="openWindow('https://www.facebook.com/sharer/sharer.php?u='+location.href,450,420);return false;" title='Auf Facebook weitersagen'><img src='bilder/share-fb.png' alt='Facebook Like'/></a>
+</td><td class="footer-mitte">
+<a href='#'>nach oben</a><br/><br/>
+<a href='datenschutz.jsp'>Datenschutz</a>&nbsp;-&nbsp;<a href='impressum.jsp'>Impressum</a>
+</td><td class="footer-rechts">
+<a href='' onclick="openWindow('http://www.xing.com/app/user?op=share;url='+location.href,450,420);return false;" title='Auf Xing weitersagen'><img src='bilder/share-xing.png' alt='Xing Button'/></a>
+&nbsp;
+<a href='' onclick="openWindow('http://twitter.com/home?status='+location.href,450,420);return false;" title='Auf Twitter weitersagen'><img src='bilder/share-twitter.png' alt='Twitter Button'/></a>
+</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<table class='footer'>
+<tbody>
+<tr><td class='footer-links'>
+&copy; 2018, Prof. Dr. Frank Dopatka
+</td><td class="footer-rechts">
+Alle Rechte vorbehalten
+<br/>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id='cookies'><div>
+<span>Diese Website verwendet Cookies, um Ihren Besuch effizienter zu machen und Ihnen mehr Benutzerfreundlichkeit zu bieten. Mit der Nutzung dieser Website stimmen Sie der Verwendung von Cookies zu.</span> 
+<a href='datenschutz.jsp#cookies-text'>Weitere Informationen...</a></div>
+<span id='cookiesCloser' onclick="document.cookie='hidecookies=1;path=/';jQuery('#cookies').slideUp()">OK</span>
+</div>
+<script>
+if(document.cookie.indexOf('hidecookies=1') != -1){
+ jQuery('#cookies').hide();
+}
+else{
+ jQuery('#cookies').prependTo('body');
+ jQuery('#cookiesCloser').show();
+}
+</script>
+
+<br/><br/><br/><br/><br/><br/>
+</body>
+</html>

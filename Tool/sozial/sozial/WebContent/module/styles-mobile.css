@@ -1,0 +1,97 @@
+body{
+font-family: Verdana, Helvetica, Arial, sans-serif;
+font-size: 0.9em;
+width: 100%;
+color: #000000;
+background-color: #FFFFFF;
+}
+
+.content h1 {
+font-size: 1.3em;
+font-weight: bold;
+text-decoration: none;
+color: #000000;
+margin: 0px;
+padding-top: 8px;
+padding-left: 0px;
+padding-right: 0px;
+padding-bottom: 0px;
+}
+
+.content h2 {
+font-size: 1.1em;
+font-weight: bold;
+text-align: left;
+margin: 0px;
+padding-top: 2px;
+padding-left: 0px;
+padding-right: 0px;
+padding-bottom: 4px;
+}
+
+.content h3 {
+font-size: 1.0em;
+font-weight: bold;
+text-align: left;
+margin: 0px;
+padding-top: 2px;
+padding-left: 0px;
+padding-right: 0px;
+padding-bottom: 2px;
+}
+
+.content ul li {
+font-family: Verdana, Helvetica, Arial, sans-serif;
+font-size: 1.0em;
+margin: 10px 0 10px 0;
+padding: 0px;
+}
+
+.content ol li {
+font-family: Verdana, Helvetica, Arial, sans-serif;
+font-size: 1.0em;
+margin: 10px 0 10px 0;
+padding: 0px;
+}
+
+.content p {
+font-family: Verdana, Helvetica, Arial, sans-serif;
+font-size: 1.0em;
+padding-bottom: 3px;
+padding-top: 3px;
+}
+
+.rahmen-aussen {
+text-align: left;
+width: 100%;
+margin: 0px;
+padding: 0px;
+background: #FFFFFF;
+}
+
+.menu td {
+width: 33%;
+height: 22px;
+border: 1px solid #D9531E;
+text-align: center;
+}
+
+.menu td a {
+font-size: 0.8em;
+font-weight: bold;
+text-decoration: none;
+color: #D9531E;
+}
+
+.button-frage {
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(to bottom, white, yellow);
+	box-shadow: inset 0px 0px 6px #fff, inset 0px -1px 6px #fff;
+	border: 1px solid #D9531E;
+	border-radius: 1em;
+	background: linear-gradient(to bottom, white, #D9531E);
+	text-align: left;
+	font-size: 1.2em;
+	padding-left: 5px;
+}

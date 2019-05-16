@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="oracle.eclipse.tools.glassfish.lib.system">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="jars/bsh-core-2.0b4.jar"/>
+	<classpathentry kind="lib" path="jars/mysql-connector-java-5.1.42-bin.jar"/>
+	<classpathentry kind="lib" path="jars/iText/barcodes-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/font-asian-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/forms-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/hyph-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/io-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/kernel-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/layout-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/pdfa-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/pdftest-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/sign-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/styled-xml-parser-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/iText/svg-7.1.4.jar"/>
+	<classpathentry kind="lib" path="jars/javax.servlet-api.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

@@ -1,0 +1,28 @@
+<div class='header'>
+<%
+String[] m=new String[11];
+for(int i=1;i<=10;i++){
+ if (menu==i)
+  m[i]=" style='background:#FFC425;'";
+ else
+  m[i]="";
+}
+%>
+<table class='menu'>
+<tbody>
+<tr>
+<td<%out.print(m[1]);%>><a href='menu-1.jsp'>Menu 1</a></td>
+<td<%out.print(m[2]);%>><a href='menu-2.jsp'>Menu 2</a></td>
+<td<%out.print(m[3]);%>><a href='menu-3.jsp'>Menu 3</a></td>
+</tr><tr>
+<td<%out.print(m[4]);%>><a href='menu-4.jsp'>Menu 4</a></td>
+<td<%out.print(m[5]);%>><a href='menu-5.jsp'>Menu 5</a></td>
+<td<%out.print(m[6]);%>><a href='menu-6.jsp'>Menu 6</a></td>
+</tr><tr>
+<td<%out.print(m[7]);%>><a href='menu-7.jsp'>Menu 7</a></td>
+<td<%out.print(m[8]);%>><a href='menu-8.jsp'>Menu 8</a></td>
+<td<%out.print(m[9]);%>><a href='menu-9.jsp'>Menu 9</a></td>
+</tr>
+</tbody>
+</table>
+</div>
