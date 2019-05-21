@@ -223,6 +223,19 @@ border-left:1px solid #7b92a9;
 	box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
 
+#optionen{
+    position: absolute;
+    float: left;
+    margin-left: 50%;
+    margin-bottom: 40px;
+}
+
+#inhalt{
+    float: left;
+    width: 70%;
+
+}
+
 
 .checkbox-container {
   display: block;

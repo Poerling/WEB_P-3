@@ -4,9 +4,18 @@ int menu=1;
 %>
 <jsp:directive.include file='module/header.jspf' />
 <%
+if(request.getParameterMap().containsKey("ID")&&request.getParameterMap().containsKey("name_ID")&&request.getParameterMap().containsKey("frage_ID_start")){
+int paramID = Integer.parseInt(request.getParameter("ID"));
+int paramNameID = Integer.parseInt(request.getParameter("name_ID"));
+int paramFrageStartID = Integer.parseInt(request.getParameter("frage_ID_start"));
+db.setSQL("INSERT INTO antrag (ID, name_ID, frage_ID_start) VALUES ('"+paramID+"','"+paramNameID+"','"+paramFrageStartID+"');");
+db.schreiben();
+db.finalize();
+//db_daten_01=db.lesenJava();
+}
+//out.println(paramID);
 
-db.setSQL("SELECT * FROM antrag;");
-db_daten_01=db.lesenJava();
+//int request.getParameter("eingabe"));
 
 %>
 
@@ -14,42 +23,30 @@ db_daten_01=db.lesenJava();
 
 <h1>AdminTool Sozialleistungsrechner</h1>
 <br/>
+<div id="inhalt">
+<h2>Neuer Antrag erstellen</h2>
+<form action='neuerAntrag.jsp' method="get"> 
+	<input type="hidden" name='antrag_ID' value="50"/>
+	<label>ID
+	<textarea name="ID" cols="1" rows="1" maxlength="3" wrap="soft"></textarea>
+	</label>
+	</br>
+	<label>name_ID
+	<textarea name="name_ID" cols="1" rows="1" maxlength="3" wrap="soft"></textarea>
+	</label>
+	</br>
+	<label>frage_ID_start
+	<textarea name="frage_ID_start" cols="1" rows="1" maxlength="3" wrap="soft"></textarea>
+	</label>
+	</br>
+	<input type='submit' class='button-frage' value='Weiter...'/>
+	</br>
+</form>
+
+</div>
+<div id="optionen">
 <h2>Optionen</h2>
 <br/>
-<form action="neuerAntrag.jsp" method="get">
-<button class="button-frage">Neuen Antrag erstellen</button>
-</form>
-<br/>
-<h2>Übersicht aller Anträge aktuell</h2>
-<table border="1">
-<tr>
-<td>ID</td>
-<td>name_ID</td>
-<td>frage_ID_start</td>
-</tr>
-
-<% for(LinkedHashMap<String, String> e : db_daten_01){ %>
-	<tr>
-	<% if(e.containsKey("ID")){ %>
-			<td>
-				<% out.println(e.get("ID")); %>
-			</td>
-	<%
-	}
-	if(e.containsKey("name_ID")){ %>
-			<td>
-			<% out.println(e.get("name_ID")); %>
-			</td>
-	<%}
-	if(e.containsKey("frage_ID_start")){ %>
-			<td>
-			<% out.println(e.get("frage_ID_start")); %>
-			</td>
-	<%}%>
-	<tr>
-<%}%>
-
-</table>
-
+</div>
   
 <jsp:directive.include file='module/footer.jspf' />

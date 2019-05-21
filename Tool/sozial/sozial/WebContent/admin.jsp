@@ -14,12 +14,7 @@ db_daten_01=db.lesenJava();
 
 <h1>AdminTool Sozialleistungsrechner</h1>
 <br/>
-<h2>Optionen</h2>
-<br/>
-<form action="neuerAntrag.jsp" method="get">
-<button class="button-frage">Neuen Antrag erstellen</button>
-</form>
-<br/>
+<div id="inhalt">
 <h2>Übersicht aller Anträge aktuell</h2>
 <table border="1">
 <tr>
@@ -49,10 +44,21 @@ db_daten_01=db.lesenJava();
 	<td>
 		<a href="loescheAntraege.jsp?id=<%=e.get("ID")%>"><button>Antrag löschen</button></a>
 	</td>
-	<tr>
-<%}%>
+	</tr>
+<%} %>
 
 </table>
-
+</div>
+<div id="optionen">
+<h2>Optionen</h2>
+<br/>
+<form action="editiereFragen.jsp" method="get">
+<button class="button-admin">Editiere Fragen</button>
+</form>
+<br/>
+<form action="neuerAntrag.jsp" method="get">
+<button class="button-admin">Neuen Antrag erstellen</button>
+</form>
+</div>
   
 <jsp:directive.include file='module/footer.jspf' />
