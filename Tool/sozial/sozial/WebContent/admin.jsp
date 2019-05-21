@@ -8,13 +8,40 @@ int menu=1;
 db.setSQL("SELECT * FROM antrag;");
 db_daten_01=db.lesenJava();
 
+DB neu = new DB();
+neu.setSQL("SELECT text , b.ID FROM sprache_deutsch a JOIN antrag b ON a.ID = b.name_ID;");
+db_daten_02=neu.lesenJava();
+
 %>
 
 <div class='content'>
 
 <h1>AdminTool Sozialleistungsrechner</h1>
+<h2>Hauptmenü</h2>
 <br/>
 <div id="inhalt">
+<h2>Übersicht aller Anträge aktuell mit Name/Prototyp</h2>
+<table border="1">
+<tr>
+<td>ID</td>
+</tr>
+
+<% for(LinkedHashMap<String, String> f : db_daten_02){ %>
+	<tr>
+	<% if(f.containsKey("text")){ %>
+			<td>
+				<% out.println(f.get("text")); %>
+			</td>
+	<%}%>
+	<td>
+		<a href="loescheAntraege.jsp?id=<%=f.get("ID")%>"><button>Antrag löschen</button></a>
+	</td>
+	</tr>
+<%} %>
+
+</table>
+
+
 <h2>Übersicht aller Anträge aktuell</h2>
 <table border="1">
 <tr>
@@ -53,7 +80,7 @@ db_daten_01=db.lesenJava();
 <h2>Optionen</h2>
 <br/>
 <form action="editiereFragen.jsp" method="get">
-<button class="button-admin">Editiere Fragen</button>
+<button class="button-admin">Editiere Frage</button>
 </form>
 <br/>
 <form action="neuerAntrag.jsp" method="get">
