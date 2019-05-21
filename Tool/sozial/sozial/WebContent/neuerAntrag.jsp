@@ -46,6 +46,7 @@ db.finalize();
 </div>
 <div id="optionen">
 <h2>Optionen</h2>
+<a href="admin.jsp">Zurück zum Hauptmenü</a>
 <br/>
 </div>
   
