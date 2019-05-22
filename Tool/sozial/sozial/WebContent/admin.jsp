@@ -5,12 +5,13 @@ int menu=1;
 <jsp:directive.include file='module/header.jspf' />
 <%
 
-db.setSQL("SELECT * FROM antrag;");
-db_daten_01=db.lesenJava();
+/* db.setSQL("SELECT * FROM antrag;");
+db_daten_01=db.lesenJava(); */
 
-DB neu = new DB();
-neu.setSQL("SELECT text , b.ID FROM sprache_deutsch a JOIN antrag b ON a.ID = b.name_ID;");
-db_daten_02=neu.lesenJava();
+db.setSQL("SELECT text , b.ID FROM sprache_deutsch a JOIN antrag b ON a.ID = b.name_ID;");
+db_daten_02=db.lesenJava();
+
+
 
 %>
 <div class='content'>
@@ -53,7 +54,7 @@ db_daten_02=neu.lesenJava();
 </table>
 
 
-<h2>//Übersicht aller Anträge ID//</h2>
+<%-- <h2>//Übersicht aller Anträge ID//</h2>
 <table border="1">
 <tr>
 <td>ID</td>
@@ -85,7 +86,7 @@ db_daten_02=neu.lesenJava();
 	</tr>
 <%} %>
 
-</table>
+</table> --%>
 </div>
 </div>
 

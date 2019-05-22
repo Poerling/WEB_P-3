@@ -13,20 +13,12 @@ db.schreiben();
 db.finalize();
 //db_daten_01=db.lesenJava();
 } */
-
-//Hole Daten für Dropdown Menü
-db.setSQL("SELECT CONCAT(a.ID, ': ', b.text) AS output, a.ID FROM frage a, sprache_deutsch b WHERE b.ID=a.frage_text_ID;");
-db_daten_02=db.lesenJava();
-
 String textParam = "";
 String meldung="";
 String numErsteFrage="";
-if(request.getParameterMap().containsKey("text")&&(request.getParameter("text")!="")
-		&&(request.getParameterMap().containsKey("numErsteFrage"))&&(request.getParameter("numErsteFrage")!="")){
-	textParam = request.getParameter("text");
-	numErsteFrage=request.getParameter("numErsteFrage");
-	db.setSQL("INSERT INTO `sprache_deutsch`(`text`) VALUES ('"+textParam+"');");
-	db.schreiben();
+if((request.getParameterMap().containsKey("text")&&(request.getParameter("text")!=""))
+		&&(request.getParameterMap().containsKey("numErsteFrage")&&(request.getParameter("numErsteFrage")!=""))){
+	numErsteFrage = request.getParameter("numErsteFrage");
 
 	//Hole ID von gerade erstelltem Text
 	db.setSQL("SELECT ID FROM `sprache_deutsch` WHERE text='"+textParam+"';");
@@ -39,9 +31,10 @@ if(request.getParameterMap().containsKey("text")&&(request.getParameter("text")!
 		
 }
 //Antrag mit ID in der DB-erstellen:	
-if(request.getParameterMap().containsKey("ID")&&(request.getParameter("ID")!="")){
-	String paramID = request.getParameter("ID");
-	db.setSQL("INSERT INTO antrag (name_ID, frage_ID_start) VALUES ('"+paramID+"','"+request.getParameter("numErsteFrage")+"');");
+if((request.getParameterMap().containsKey("ID")&&(request.getParameter("ID")!=""))
+		&&(request.getParameterMap().containsKey("numErsteFrage")&&(request.getParameter("numErsteFrage")!=""))){
+	int paramID = Integer.parseInt(request.getParameter("ID"));
+	db.setSQL("INSERT INTO antrag (name_ID, frage_ID_start) VALUES ('"+paramID+"','"+numErsteFrage+"');");
 	db.schreiben();
 	db.finalize();
 	meldung="Antrag mit name_ID "+request.getParameter("ID")+" erfolgreich angelegt!";
@@ -62,22 +55,14 @@ if(request.getParameterMap().containsKey("ID")&&(request.getParameter("ID")!="")
 <h2>Prototyp: Neuer Antrag erstellen/V.0.0.1</h2>
 </br>
 <form action='neuerAntrag.jsp' method="get"> 
-	<label>Antrag Name: </br>
+	<label>Antrag Name: 
 	<% if(textParam!="") %>
 	<textarea name="text" cols="50" rows="1" maxlength="5000" wrap="soft"><%out.print(textParam);%></textarea>
 	</label>
 	</br>
-<!-- 	<label>Nummer erste Frage: </br>
+	<label>Nummer erste Frage: 
 	<textarea name="numErsteFrage" cols="50" rows="1" maxlength="5000" wrap="soft"></textarea>
-	</label> -->
-	<label>Nummer der ersten Frage: </br>
-	<select name="numErsteFrage">
-	<% for(LinkedHashMap<String, String> e : db_daten_02){%> 
-		<option value=<%out.println(e.get("ID"));%>><%out.println(e.get("output"));%></option>
-	<%}%>
-	</select>
 	</label>
-	</br>
 	</br>
 	<input type='submit' class='button' value='Weiter'/>
 	<p><%out.println(meldung);%></p>
