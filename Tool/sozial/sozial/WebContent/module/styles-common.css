@@ -224,16 +224,11 @@ border-left:1px solid #7b92a9;
 }
 
 #optionen{
-    position: absolute;
-    float: left;
-    margin-left: 50%;
-    margin-bottom: 40px;
+	position: absolute;
+    margin-left: 600px;
 }
 
 #inhalt{
-    float: left;
-    width: 70%;
-
 }
 
 

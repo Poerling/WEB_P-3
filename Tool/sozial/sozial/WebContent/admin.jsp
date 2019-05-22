@@ -13,17 +13,28 @@ neu.setSQL("SELECT text , b.ID FROM sprache_deutsch a JOIN antrag b ON a.ID = b.
 db_daten_02=neu.lesenJava();
 
 %>
-
 <div class='content'>
+<div id="optionen">
+<h2>Optionen</h2>
+<br/>
+<p>Noch ohne Funktion</p>
+<form action="fragenZuAntrag.jsp" method="get">
+<button class="button-admin">Editiere Frage</button>
+</form>
+<br/>
+<form action="neuerAntrag.jsp" method="get">
+<button class="button-admin">Neuen Antrag erstellen</button>
+</form>
+</div>
 
 <h1>AdminTool Sozialleistungsrechner</h1>
 <h2>Hauptmenü</h2>
 <br/>
 <div id="inhalt">
-<h2>Übersicht aller Anträge aktuell mit Name/Prototyp</h2>
+<h2>Prototyp: Übersicht aller Anträge aktuell mit Name</h2>
 <table border="1">
 <tr>
-<td>ID</td>
+<td>Name</td>
 </tr>
 
 <% for(LinkedHashMap<String, String> f : db_daten_02){ %>
@@ -42,7 +53,7 @@ db_daten_02=neu.lesenJava();
 </table>
 
 
-<h2>Übersicht aller Anträge aktuell</h2>
+<h2>//Übersicht aller Anträge ID//</h2>
 <table border="1">
 <tr>
 <td>ID</td>
@@ -76,16 +87,7 @@ db_daten_02=neu.lesenJava();
 
 </table>
 </div>
-<div id="optionen">
-<h2>Optionen</h2>
-<br/>
-<form action="editiereFragen.jsp" method="get">
-<button class="button-admin">Editiere Frage</button>
-</form>
-<br/>
-<form action="neuerAntrag.jsp" method="get">
-<button class="button-admin">Neuen Antrag erstellen</button>
-</form>
 </div>
+
   
 <jsp:directive.include file='module/footer.jspf' />
