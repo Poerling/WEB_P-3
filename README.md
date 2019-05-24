@@ -1,6 +1,7 @@
 # WEB_P-3
 WEB_P-3
-[X] Anträge Hauptmenü ist soweit fertig! 
+[X] Anträge Hauptmenü ist soweit fertig!
+
 [ ] Neuer Antrag -> Startfrage muss gefüllt werden... Dropdownliste mit allen Fragen?
 [ ] Liste Fragen: Regeln und Antoworten müssen noch hinzugefügt werden -> Alex
 [ ] Fragen editieren: 
