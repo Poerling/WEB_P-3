@@ -221,4 +221,6 @@ public class DB {
 		ArrayList<LinkedHashMap<String, String>> daten = lesenJava();
 		return daten.get(0).get("text");
 	}
+	
+	
 }

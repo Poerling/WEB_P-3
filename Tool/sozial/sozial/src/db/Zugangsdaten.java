@@ -8,5 +8,5 @@ public class Zugangsdaten {
 //	public static String pass="Dopa1978..";
 	// Lokal
 	public static String user="admin";
-	public static String pass="Dopa1978";
+	public static String pass="dopa1978";
 }
