@@ -14,6 +14,9 @@ int menu=1;
 db.setSQL("SELECT b.ID, a.text, c.antwort_typ FROM sprache_deutsch a JOIN frage b ON a.ID=b.frage_text_ID JOIN antwort_typ c ON b.antwort_typ_ID=c.ID;");
 db_daten_01=db.lesenJava();
 
+db.setSQL("SELECT * FROM FRAGE");
+db_daten_02= db.lesenJava();
+
 db.finalize();
 
 
@@ -45,7 +48,7 @@ db.finalize();
 			</td>
 	<%}%>
 	<td>
-		<a href="yxx.jsp?id=<%=e.get("ID")%>"><button>Editieren</button></a>
+		<a href="editiereFrage.jsp?id=<%=e.get("ID")%>"><button>Editieren</button></a>
 		<a href="yxx.jsp?id=<%=e.get("ID")%>"><button>Löschen</button></a>
 	</td>
 	</tr>
