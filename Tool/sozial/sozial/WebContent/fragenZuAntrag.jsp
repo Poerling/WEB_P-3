@@ -24,6 +24,11 @@ db_daten_01=db.lesenJava();
 
 db.setSQL(sqlStatement2);
 db_daten_02=db.lesenJava();
+db.setSQL("SELECT sprache_deutsch.text, sprache_deutsch.ID, antwort_typ.antwort_typ FROM frage INNER JOIN sprache_deutsch ON frage.ID=sprache_deutsch.ID INNER JOIN antwort_typ ON frage.antwort_typ_ID=antwort_typ.ID;");
+db_daten_01=db.lesenJava();
+
+db.setSQL("SELECT * FROM FRAGE");
+db_daten_02= db.lesenJava();
 
 db.finalize();
 
@@ -38,12 +43,18 @@ db.finalize();
 <h2>Liste</h2>
 <table border="1">
 <tr>
+<<<<<<< HEAD
 <td>Fragen</td>
 <td>Frage-typ</td>
 <td>Regeln</td>
 <td>Antworten</td>
 <td>Aktionen</td>
 
+=======
+<td>text</td>
+<td>antwort_typ</td>
+<td><a href="neueFrage.jsp"><button>Neue Frage</button></a>
+>>>>>>> d0e19f7616d60bd40b29deb631dc4cc30a8a36aa
 </tr>
 
 <% for(LinkedHashMap<String, String> e : db_daten_01){ %>
@@ -62,7 +73,7 @@ db.finalize();
 	
 	<td> test </td>
 	<td>
-		<a href="yxx.jsp?id=<%=e.get("ID")%>"><button>Editieren</button></a>
+		<a href="editiereFrage.jsp?id=<%=e.get("ID")%>"><button>Editieren</button></a>
 		<a href="yxx.jsp?id=<%=e.get("ID")%>"><button>Löschen</button></a>
 	</td>
 	</tr>
