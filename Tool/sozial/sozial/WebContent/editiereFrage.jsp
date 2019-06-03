@@ -35,7 +35,7 @@
 		<%
 			String antwort_typ = f.get("antwort_typ");
 		%>
-		<label>sprache_deutsch.ID: <textarea name="form_ID" cols="50"
+		<label>Frage ID: <textarea name="form_ID" cols="50"
 				rows="1" maxlength="100" wrap="soft" readonly="readonly">
 					<%
 						out.print(id);

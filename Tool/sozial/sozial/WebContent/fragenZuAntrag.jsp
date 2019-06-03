@@ -11,7 +11,7 @@ int menu=1;
  */
 
 //SQL-Query hat noch Fehler! Urpsrünglich 41, jetzt leider nur 24
-db.setSQL("SELECT b.ID, a.text, c.antwort_typ FROM sprache_deutsch a JOIN frage b ON a.ID=b.frage_text_ID JOIN antwort_typ c ON b.antwort_typ_ID=c.ID;");
+db.setSQL("SELECT sprache_deutsch.text, sprache_deutsch.ID, antwort_typ.antwort_typ FROM frage INNER JOIN sprache_deutsch ON frage.ID=sprache_deutsch.ID INNER JOIN antwort_typ ON frage.antwort_typ_ID=antwort_typ.ID;");
 db_daten_01=db.lesenJava();
 
 db.setSQL("SELECT * FROM FRAGE");
@@ -32,6 +32,7 @@ db.finalize();
 <tr>
 <td>text</td>
 <td>antwort_typ</td>
+<td><a href="neueFrage.jsp"><button>Neue Frage</button></a>
 </tr>
 
 <% for(LinkedHashMap<String, String> e : db_daten_01){ %>
