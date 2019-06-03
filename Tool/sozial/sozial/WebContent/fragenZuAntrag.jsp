@@ -1,7 +1,7 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%
 int menu=1;
-
+PreparedStatement ps ;
 %>
 <jsp:directive.include file='module/header.jspf' />
 <%
@@ -16,19 +16,20 @@ int menu=1;
 //SQL-Query hat noch Fehler! Urpsrünglich 41, jetzt leider nur 24
 
 String sqlStatement1 = "SELECT b.ID, a.text, c.antwort_typ FROM sprache_deutsch a JOIN frage b ON a.ID=b.frage_text_ID JOIN antwort_typ c ON b.antwort_typ_ID=c.ID;"; 
-// Abfrage um die Regeln zu bekommen
-String sqlStatement2 = "SELECT liste_fragen.ID, antwort_zahl.regel FROM liste_fragen, antwort_zahl WHERE antwort_zahl.frage_ID = liste_fragen.ID";
+
 db.setSQL(sqlStatement1);
 db_daten_01=db.lesenJava();
 
 
+//Abfrage um die Regeln zu bekommen
+String sqlStatement2 = "SELECT liste_fragen.ID, antwort_zahl.regel FROM liste_fragen, antwort_zahl WHERE antwort_zahl.frage_ID = liste_fragen.ID";
 db.setSQL(sqlStatement2);
 db_daten_02=db.lesenJava();
-db.setSQL("SELECT sprache_deutsch.text, sprache_deutsch.ID, antwort_typ.antwort_typ FROM frage INNER JOIN sprache_deutsch ON frage.ID=sprache_deutsch.ID INNER JOIN antwort_typ ON frage.antwort_typ_ID=antwort_typ.ID;");
-db_daten_01=db.lesenJava();
+//b.setSQL("SELECT sprache_deutsch.text, sprache_deutsch.ID, antwort_typ.antwort_typ FROM frage INNER JOIN sprache_deutsch ON frage.ID=sprache_deutsch.ID INNER JOIN antwort_typ ON frage.antwort_typ_ID=antwort_typ.ID;");
+//db_daten_01=db.lesenJava();
 
-db.setSQL("SELECT * FROM FRAGE");
-db_daten_02= db.lesenJava();
+//db.setSQL("SELECT * FROM FRAGE");
+//db_daten_02= db.lesenJava();
 
 db.finalize();
 
@@ -38,6 +39,35 @@ db.finalize();
 <div class='content'>
 
 <h1>AdminTool Sozialleistungsrechner</h1>
+<table border="1">
+
+<%//Test ob die richtigen Daten in db Daten02 steht %>
+<tr>
+
+
+<td>Regeln</td>
+<td>Antworten</td>
+
+</tr>
+
+<% for(LinkedHashMap<String, String> e : db_daten_02){ %>
+	<tr>
+	<% if(e.containsKey("regel")){ %>
+			<td>
+				<% out.println(e.get("regel")); %>
+			</td>
+	<%
+	}
+	if(e.containsKey("id")){ %>
+			<td>
+			<% out.println(e.get("id")); %>
+			</td>
+	<%}%>
+	
+
+<%} %>
+
+</table>
 <br/>
 <div id="inhalt">
 <h2>Liste</h2>
@@ -50,10 +80,6 @@ db.finalize();
 <td>Antworten</td>
 <td>Aktionen</td>
 
-<td>text</td>
-<td>antwort_typ</td>
-<td><a href="neueFrage.jsp"><button>Neue Frage</button></a>
->>>>>>> d0e19f7616d60bd40b29deb631dc4cc30a8a36aa
 </tr>
 
 <% for(LinkedHashMap<String, String> e : db_daten_01){ %>
@@ -70,6 +96,7 @@ db.finalize();
 			</td>
 	<%}%>
 	
+	<td> test </td>
 	<td> test </td>
 	<td>
 		<a href="editiereFrage.jsp?id=<%=e.get("ID")%>"><button>Editieren</button></a>
