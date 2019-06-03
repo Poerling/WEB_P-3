@@ -43,14 +43,13 @@ db.finalize();
 <h2>Liste</h2>
 <table border="1">
 <tr>
-<<<<<<< HEAD
+
 <td>Fragen</td>
 <td>Frage-typ</td>
 <td>Regeln</td>
 <td>Antworten</td>
 <td>Aktionen</td>
 
-=======
 <td>text</td>
 <td>antwort_typ</td>
 <td><a href="neueFrage.jsp"><button>Neue Frage</button></a>
